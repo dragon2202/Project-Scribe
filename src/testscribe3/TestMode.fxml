@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.input.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="TestBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testscribe3.TestModeController">
+   <children>
+      <ScrollPane prefHeight="1200.0" prefViewportHeight="899.0" prefViewportWidth="1172.0" prefWidth="1300.0" VBox.vgrow="ALWAYS">
+         <content>
+            <AnchorPane id="AnchorPane" fx:id="TestPane" blendMode="DARKEN" prefHeight="1200.0" prefWidth="1300.0">
+               <children>
+                  <Label fx:id="askVariant" layoutX="556.0" layoutY="101.0" prefHeight="35.0" prefWidth="205.0" text="Please select variant" visible="false">
+                     <font>
+                        <Font name="Calibri" size="24.0" />
+                     </font>
+                  </Label>
+                  <MenuButton fx:id="dropMenu1" layoutX="240.0" layoutY="235.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="165.0" text="Choose action" visible="false">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#writeChoice1Passed" text="Passed" />
+                      <MenuItem mnemonicParsing="false" onAction="#writeChoice1Failed" text="Failed" />
+                        <MenuItem mnemonicParsing="false" onAction="#writeChoice1NotTested" text="Not Tested" />
+                    </items>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </MenuButton>
+                  <MenuButton fx:id="dropMenu2" layoutX="240.0" layoutY="445.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="165.0" text="Choose action" visible="false">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#writeChoice2Passed" text="Passed" />
+                        <MenuItem mnemonicParsing="false" onAction="#writeChoice2Failed" text="Failed" />
+                        <MenuItem mnemonicParsing="false" onAction="#writeChoice2NotTested" text="Not Tested" />
+                     </items>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </MenuButton>
+                  <MenuButton fx:id="dropMenu3" layoutX="240.0" layoutY="655.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="165.0" text="Choose action" visible="false">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#writeChoice3Passed" text="Passed" />
+                        <MenuItem mnemonicParsing="false" onAction="#writeChoice3Failed" text="Failed" />
+                        <MenuItem mnemonicParsing="false" onAction="#writeChoice3NotTested" text="Not Tested" />
+                     </items>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </MenuButton>
+                  <MenuButton fx:id="dropMenu4" layoutX="240.0" layoutY="865.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="165.0" text="Choose action" visible="false">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#writeChoice4Passed" text="Passed" />
+                        <MenuItem mnemonicParsing="false" onAction="#writeChoice4Failed" text="Failed" />
+                        <MenuItem mnemonicParsing="false" onAction="#writeChoice4NotTested" text="Not Tested" />
+                     </items>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </MenuButton>
+                  <MenuButton fx:id="dropMenu5" layoutX="240.0" layoutY="1075.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="165.0" text="Choose action" visible="false">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#writeChoice5Passed" text="Passed" />
+                        <MenuItem mnemonicParsing="false" onAction="#writeChoice5Failed" text="Failed" />
+                        <MenuItem mnemonicParsing="false" onAction="#writeChoice5NotTested" text="Not Tested" />
+                     </items>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </MenuButton>
+                  <Button fx:id="previousArrow1" layoutX="501.0" layoutY="1146.0" mnemonicParsing="false" onAction="#previousArrow1" prefHeight="30.0" prefWidth="45.0" text="&lt;" visible="false" />
+                  <Button fx:id="previousArrow5" layoutX="450.0" layoutY="1146.0" mnemonicParsing="false" onAction="#previousArrow5" prefHeight="30.0" prefWidth="45.0" text="&lt;&lt;" visible="false" />
+                  <Button fx:id="previousArrow10" layoutX="399.0" layoutY="1146.0" mnemonicParsing="false" onAction="#previousArrow10" prefHeight="30.0" prefWidth="45.0" text="&lt;&lt;&lt;" visible="false" />
+                  <Button fx:id="nextArrow1" layoutX="745.0" layoutY="1146.0" mnemonicParsing="false" onAction="#nextArrow1" prefHeight="30.0" prefWidth="45.0" text="&gt;" visible="false" />
+                  <Button fx:id="nextArrow5" layoutX="796.0" layoutY="1146.0" mnemonicParsing="false" onAction="#nextArrow5" prefHeight="30.0" prefWidth="45.0" text="&gt;&gt;" visible="false" />
+                  <Button fx:id="nextArrow10" layoutX="847.0" layoutY="1146.0" mnemonicParsing="false" onAction="#nextArrow10" prefHeight="30.0" prefWidth="45.0" text="&gt;&gt;&gt;" visible="false" />
+                  <TextField fx:id="testDescription1" blendMode="DARKEN" editable="false" layoutX="612.0" layoutY="235.0" mouseTransparent="true" opacity="0.0" visible="false" />
+                  <TextField fx:id="testDescription2" blendMode="DARKEN" editable="false" layoutX="612.0" layoutY="445.0" mouseTransparent="true" opacity="0.0" visible="false" />
+                  <TextField fx:id="testDescription3" blendMode="DARKEN" editable="false" layoutX="612.0" layoutY="655.0" mouseTransparent="true" opacity="0.0" visible="false" />
+                  <TextField fx:id="testDescription4" blendMode="DARKEN" editable="false" layoutX="612.0" layoutY="865.0" mouseTransparent="true" opacity="0.0" visible="false" />
+                  <TextField fx:id="testDescription5" blendMode="DARKEN" editable="false" layoutX="612.0" layoutY="1075.0" mouseTransparent="true" opacity="0.0" visible="false" />
+                  <TextArea fx:id="question1" blendMode="DARKEN" editable="false" layoutX="240.0" layoutY="150.0" prefHeight="76.0" prefWidth="523.0" style="-fx-alignment: top-left; -fx-wrap-text: true; -fx-border-color: white;" visible="false" />
+                  <TextArea fx:id="question2" blendMode="DARKEN" editable="false" layoutX="240.0" layoutY="360.0" prefHeight="76.0" prefWidth="523.0" style="-fx-alignment: top-left; -fx-wrap-text: true; -fx-border-color: white;" visible="false" />
+                  <TextArea fx:id="question3" blendMode="DARKEN" editable="false" layoutX="240.0" layoutY="570.0" prefHeight="76.0" prefWidth="523.0" style="-fx-alignment: top-left; -fx-wrap-text: true; -fx-border-color: white;" visible="false" />
+                  <TextArea fx:id="question4" blendMode="DARKEN" editable="false" layoutX="240.0" layoutY="780.0" prefHeight="76.0" prefWidth="523.0" style="-fx-alignment: top-left; -fx-wrap-text: true; -fx-border-color: white;" visible="false" />
+                  <TextArea fx:id="question5" blendMode="DARKEN" editable="false" layoutX="240.0" layoutY="990.0" prefHeight="76.0" prefWidth="523.0" style="-fx-alignment: top-left; -fx-wrap-text: true; -fx-border-color: white;" visible="false" />
+                  <Label fx:id="labelSaved" layoutX="1219.0" layoutY="40.0" prefHeight="32.0" prefWidth="50.0" text="Saved!" textAlignment="CENTER" visible="false">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="comment5" layoutX="776.0" layoutY="990.0" prefHeight="120.0" prefWidth="490.0" promptText="Comment Section" visible="false" />
+                  <TextArea fx:id="comment4" layoutX="776.0" layoutY="780.0" prefHeight="120.0" prefWidth="490.0" promptText="Comment Section" visible="false" />
+                  <TextArea fx:id="comment2" layoutX="776.0" layoutY="360.0" prefHeight="120.0" prefWidth="490.0" promptText="Comment Section" visible="false" />
+                  <TextArea fx:id="comment3" layoutX="776.0" layoutY="570.0" prefHeight="120.0" prefWidth="490.0" promptText="Comment Section" visible="false" />
+                  <TextArea fx:id="comment1" layoutX="776.0" layoutY="150.0" prefHeight="120.0" prefWidth="490.0" promptText="Comment Section" visible="false" />
+                  <MenuBar fx:id="TestMenuBar" prefHeight="32.0" prefWidth="1300.0">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="File">
+                        <items>
+                              <MenuItem accelerator="Shortcut+L" mnemonicParsing="false" onAction="#loadFile" text="Load" />
+                              <MenuItem disable="true" fx:id="saveItem" accelerator="Shortcut+S" onAction="#saveToOri" text="Save" />
+                              <MenuItem disable="true" fx:id="saveItemAs" onAction="#saveToOriAs" text="Save As" />
+                              <MenuItem fx:id="enableOnScreenKeyboardButton" accelerator="Shortcut+K" onAction="#callOnScreenKeyboard" text="Open On Screen Keyboard" />
+                              <MenuItem disable="true" mnemonicParsing="false" text="Print" />
+                        </items>
+                      </Menu>
+                        <Menu disable="true" mnemonicParsing="false" text="Export" />
+                        <Menu fx:id="variantFilter" mnemonicParsing="false" text="Select Variant" />
+                        <Menu fx:id="sheetSelector" mnemonicParsing="false" text="Select Sheet" />
+                        <Menu fx:id="headerJumpTo" mnemonicParsing="false" text="Find" />
+                        <Menu mnemonicParsing="false" text="Switch Mode">
+                           <items>
+                              <MenuItem fx:id="EditMode" accelerator="F2" mnemonicParsing="false" onAction="#handleEditButton" text="Edit Mode" />
+                              <MenuItem fx:id="ViewMode" accelerator="F3" mnemonicParsing="false" onAction="#handleViewButton" text="View Mode" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="View">
+                           <items>
+                              <MenuItem fx:id="cclogView" accelerator="F5" mnemonicParsing="false" onAction="#handleCCLog" text="CCLog" />
+                              <MenuItem fx:id="countsView" accelerator="F6" mnemonicParsing="false" onAction="#handleCounts" text="Counts" />
+                              <MenuItem fx:id="execView" accelerator="F7" mnemonicParsing="false" onAction="#handleExec" text="Executive Summary" />
+                              <MenuItem fx:id="shiftView" accelerator="F8" mnemonicParsing="false" onAction="#handleShift" text="Shift Entry" />
+                              <MenuItem disable="true" mnemonicParsing="false" text="Test Steps" accelerator="F9"/>
+                           </items>
+                        </Menu>
+                      <Menu mnemonicParsing="false" text="Help">
+                        <items>
+                          <MenuItem accelerator="F1" mnemonicParsing="false" onAction="#openHelpDocument" text="Help Document" />
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+                  <Label fx:id="id1" layoutX="14.0" layoutY="174.0" mouseTransparent="true" prefHeight="28.0" prefWidth="34.0" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label fx:id="id2" layoutX="14.0" layoutY="384.0" mouseTransparent="true" prefHeight="28.0" prefWidth="34.0" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label fx:id="id3" layoutX="14.0" layoutY="594.0" mouseTransparent="true" prefHeight="28.0" prefWidth="34.0" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label fx:id="id4" layoutX="14.0" layoutY="804.0" mouseTransparent="true" prefHeight="28.0" prefWidth="34.0" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label fx:id="id5" layoutX="14.0" layoutY="1014.0" mouseTransparent="true" prefHeight="28.0" prefWidth="34.0" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label fx:id="selectTest" layoutX="332.0" layoutY="524.0" mouseTransparent="true" text="Please select a test or view to continue...">
+                     <font>
+                        <Font name="Arial" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="introLabel" layoutX="318.0" layoutY="465.0" mouseTransparent="true" text="Test Evaluation Logging and Analysis Tool">
+                     <font>
+                        <Font name="Arial" size="36.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="subHead1" blendMode="DARKEN" editable="false" layoutX="55.0" layoutY="150.0" prefHeight="125.0" prefWidth="174.0" style="-fx-alignment: top-left; -fx-wrap-text: true; -fx-border-color: white;" visible="false" />
+                  <TextArea fx:id="subHead2" blendMode="DARKEN" editable="false" layoutX="55.0" layoutY="360.0" prefHeight="125.0" prefWidth="174.0" style="-fx-alignment: top-left; -fx-wrap-text: true; -fx-border-color: white;" visible="false" />
+                  <TextArea fx:id="subHead3" blendMode="DARKEN" editable="false" layoutX="55.0" layoutY="570.0" prefHeight="125.0" prefWidth="174.0" style="-fx-alignment: top-left; -fx-wrap-text: true; -fx-border-color: white;" visible="false" />
+                  <TextArea fx:id="subHead4" blendMode="DARKEN" editable="false" layoutX="55.0" layoutY="780.0" prefHeight="125.0" prefWidth="174.0" style="-fx-alignment: top-left; -fx-wrap-text: true; -fx-border-color: white;" visible="false" />
+                  <TextArea fx:id="subHead5" blendMode="DARKEN" editable="false" layoutX="55.0" layoutY="990.0" prefHeight="125.0" prefWidth="174.0" style="-fx-alignment: top-left; -fx-wrap-text: true; -fx-border-color: white;" visible="false" />
+                  <TextArea fx:id="header1" blendMode="DARKEN" editable="false" layoutX="14.0" layoutY="90.0" prefHeight="54.0" prefWidth="1262.0" style="-fx-alignment: top-left; -fx-wrap-text: true; -fx-border-color: white;" visible="false" />
+                  <TextArea fx:id="header2" blendMode="DARKEN" editable="false" layoutX="14.0" layoutY="300.0" prefHeight="54.0" prefWidth="1262.0" style="-fx-alignment: top-left; -fx-wrap-text: true; -fx-border-color: white;" visible="false" />
+                  <TextArea fx:id="header3" blendMode="DARKEN" editable="false" layoutX="14.0" layoutY="510.0" prefHeight="54.0" prefWidth="1262.0" style="-fx-alignment: top-left; -fx-wrap-text: true; -fx-border-color: white;" visible="false" />
+                  <TextArea fx:id="header4" blendMode="DARKEN" editable="false" layoutX="14.0" layoutY="720.0" prefHeight="54.0" prefWidth="1262.0" style="-fx-alignment: top-left; -fx-wrap-text: true; -fx-border-color: white;" visible="false" />
+                  <TextArea fx:id="header5" blendMode="DARKEN" editable="false" layoutX="14.0" layoutY="930.0" prefHeight="54.0" prefWidth="1262.0" style="-fx-alignment: top-left; -fx-wrap-text: true; -fx-border-color: white;" visible="false" />
+                  <Label fx:id="labelStepsNotFound" layoutX="14.0" layoutY="43.0" prefHeight="26.0" prefWidth="161.0" text="Test Steps not found! " textAlignment="CENTER" textFill="RED" visible="false">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="pageNumber" alignment="CENTER" editable="false" layoutX="558.0" layoutY="1147.0" mouseTransparent="true" prefHeight="17.0" prefWidth="175.0" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font></TextField>
+                  <Label layoutX="564.0" layoutY="43.0" mouseTransparent="true" text="Test Steps" visible="false">
+                     <font>
+                        <Font name="Arial" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="checklistLabel" layoutX="553.0" layoutY="37.0" text="Checklist" visible="false">
+                     <font>
+                        <Font name="Arial" size="48.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>

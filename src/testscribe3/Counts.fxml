@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="TestBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testscribe3.CountsController">
+   <children>
+      <ScrollPane prefViewportHeight="899.0" prefViewportWidth="1172.0" VBox.vgrow="ALWAYS">
+         <content>
+            <AnchorPane id="AnchorPane" fx:id="TestPane" blendMode="DARKEN" prefHeight="899.0" prefWidth="1172.0">
+               <children>
+                  <MenuBar fx:id="CountsMenuBar" prefHeight="32.0" prefWidth="1172.0">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="File">
+                           <items>
+                              <MenuItem accelerator="Shortcut+L" mnemonicParsing="false" onAction="#loadFile" text="Load" />
+                              <MenuItem disable="true" mnemonicParsing="false" text="Save" />
+                              <MenuItem disable="true" mnemonicParsing="false" text="Save As" />
+                              <MenuItem fx:id="enableOnScreenKeyboardButton" accelerator="Shortcut+K" onAction="#callOnScreenKeyboard" text="Open On Screen Keyboard" />
+                              <MenuItem disable="true" mnemonicParsing="false" text="Print" />
+                           </items></Menu>
+                        <Menu disable="true" mnemonicParsing="false" text="Export" />
+                        <Menu disable="true" mnemonicParsing="false" text="Select Variant" />
+                        <Menu disable="true" mnemonicParsing="false" text="Select Sheet" />
+                        <Menu disable="true" mnemonicParsing="false" text="Find" />
+                        <Menu mnemonicParsing="false" text="Switch Mode">
+                           <items>
+                              <MenuItem fx:id="EditMode" accelerator="F2" mnemonicParsing="false" onAction="#handleEditButton" text="Edit Mode" />
+                              <MenuItem fx:id="ViewMode" accelerator="F3" mnemonicParsing="false" onAction="#handleViewButton" text="View Mode" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="View">
+                           <items>
+                              <MenuItem fx:id="cclogView" accelerator="F5" mnemonicParsing="false" onAction="#handleCCLog" text="CCLog" />
+                              <MenuItem disable="true" mnemonicParsing="false" text="Counts" />
+                              <MenuItem fx:id="execView" accelerator="F7" mnemonicParsing="false" onAction="#handleExec" text="Executive Summary" />
+                              <MenuItem fx:id="shiftView" accelerator="F8" mnemonicParsing="false" onAction="#handleShift" text="Shift Entry" />
+                              <MenuItem fx:id="closeItem1" accelerator="F9" mnemonicParsing="false" onAction="#handleTest" text="Test Steps" />
+                           </items>
+                        </Menu>
+                      <Menu mnemonicParsing="false" text="Help">
+                        <items>
+                          <MenuItem accelerator="F1" mnemonicParsing="false" text="Tutorial" />
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+                  <Label layoutX="530.0" layoutY="43.0" text="Counts">
+                     <font>
+                        <Font size="36.0" />
+                     </font></Label>
+                  <TextField editable="false" layoutX="48.0" layoutY="141.0" prefHeight="50.0" prefWidth="400.0" style="-fx-background-color: transparent;" text="Number of Test Steps:">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></TextField>
+                  <TextField editable="false" layoutX="48.0" layoutY="191.0" prefHeight="50.0" prefWidth="400.0" style="-fx-background-color: transparent;" text="Number of Test Steps Passed:">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></TextField>
+                  <TextField editable="false" layoutX="48.0" layoutY="241.0" prefHeight="50.0" prefWidth="400.0" style="-fx-background-color: transparent;" text="Number of Test Steps Failed:">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></TextField>
+                  <TextField editable="false" layoutX="48.0" layoutY="291.0" prefHeight="50.0" prefWidth="400.0" style="-fx-background-color: transparent;" text="Number of Test Steps Not Tested:">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></TextField>
+                  <Label fx:id="numTS" layoutX="448.0" layoutY="149.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="numPassed" layoutX="448.0" layoutY="199.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="numFailed" layoutX="448.0" layoutY="249.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="numNotTested" layoutX="448.0" layoutY="299.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Button layoutX="227.0" layoutY="87.0" mnemonicParsing="false" onAction="#count" prefHeight="26.0" prefWidth="171.0" text="Get Counts">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <ChoiceBox fx:id="sheetSelector" layoutX="68.0" layoutY="96.0" prefWidth="150.0" />
+                  <TextField editable="false" layoutX="48.0" layoutY="477.0" prefHeight="50.0" prefWidth="400.0" style="-fx-background-color: transparent;" text="Number of Test Steps Failed:">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></TextField>
+                  <TextField editable="false" layoutX="48.0" layoutY="427.0" prefHeight="50.0" prefWidth="400.0" style="-fx-background-color: transparent;" text="Number of Test Steps Passed:">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></TextField>
+                  <TextField editable="false" layoutX="48.0" layoutY="377.0" prefHeight="50.0" prefWidth="400.0" style="-fx-background-color: transparent;" text="Number of Test Steps:">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></TextField>
+                  <TextField editable="false" layoutX="48.0" layoutY="527.0" prefHeight="50.0" prefWidth="400.0" style="-fx-background-color: transparent;" text="Number of Test Steps Not Tested:">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></TextField>
+                  <Label layoutX="30.0" layoutY="344.0" text="All Sheets" underline="true">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="totalNumTS" layoutX="448.0" layoutY="385.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="totalNumPassed" layoutX="448.0" layoutY="435.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="totalNumFailed" layoutX="448.0" layoutY="485.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="totalNumNotTested" layoutX="448.0" layoutY="535.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label layoutX="877.0" layoutY="96.0" text="Percent" underline="true">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="numTS_PD" layoutX="868.0" layoutY="149.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="numPassed_PD" layoutX="868.0" layoutY="199.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="numFailed_PD" layoutX="868.0" layoutY="249.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="numNotTested_PD" layoutX="868.0" layoutY="299.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="numTS_PR" layoutX="968.0" layoutY="149.0" prefHeight="25.0" prefWidth="175.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="numPassed_PR" layoutX="968.0" layoutY="199.0" prefHeight="25.0" prefWidth="175.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="numFailed_PR" layoutX="968.0" layoutY="249.0" prefHeight="25.0" prefWidth="175.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="numNotTested_PR" layoutX="968.0" layoutY="299.0" prefHeight="25.0" prefWidth="175.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="totalNumNotTested_PD" layoutX="868.0" layoutY="535.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="totalNumFailed_PD" layoutX="868.0" layoutY="485.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="totalNumPassed_PD" layoutX="868.0" layoutY="435.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="totalNumTS_PD" layoutX="868.0" layoutY="385.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="totalNumNotTested_PR" layoutX="968.0" layoutY="535.0" prefHeight="25.0" prefWidth="175.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="totalNumFailed_PR" layoutX="968.0" layoutY="485.0" prefHeight="25.0" prefWidth="175.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="totalNumPassed_PR" layoutX="968.0" layoutY="435.0" prefHeight="25.0" prefWidth="175.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="totalNumTS_PR" layoutX="968.0" layoutY="385.0" prefHeight="25.0" prefWidth="175.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Separator layoutX="919.0" layoutY="142.0" orientation="VERTICAL" prefHeight="434.0" prefWidth="13.0" />
+                  <Label fx:id="totalNumTS_PN" layoutX="668.0" layoutY="385.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="totalNumPassed_PN" layoutX="668.0" layoutY="435.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="totalNumFailed_PN" layoutX="668.0" layoutY="485.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="totalNumNotTested_PN" layoutX="668.0" layoutY="535.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="numNotTested_PN" layoutX="668.0" layoutY="299.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="numFailed_PN" layoutX="668.0" layoutY="249.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="numPassed_PN" layoutX="668.0" layoutY="199.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="numTS_PN" layoutX="668.0" layoutY="149.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label layoutX="768.0" layoutY="149.0" prefHeight="25.0" prefWidth="100.0" text="/">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label layoutX="768.0" layoutY="199.0" prefHeight="25.0" prefWidth="100.0" text="/">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label layoutX="768.0" layoutY="249.0" prefHeight="25.0" prefWidth="100.0" text="/">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label layoutX="768.0" layoutY="299.0" prefHeight="25.0" prefWidth="100.0" text="/">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label layoutX="768.0" layoutY="385.0" prefHeight="25.0" prefWidth="100.0" text="/">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label layoutX="768.0" layoutY="435.0" prefHeight="25.0" prefWidth="100.0" text="/">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label layoutX="768.0" layoutY="485.0" prefHeight="25.0" prefWidth="100.0" text="/">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label layoutX="768.0" layoutY="535.0" prefHeight="25.0" prefWidth="100.0" text="/">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font></Label>
+                  <Label layoutX="30.0" layoutY="592.0" text="CCLog" underline="true">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+                  <TextField editable="false" layoutX="56.0" layoutY="629.0" prefHeight="50.0" prefWidth="400.0" style="-fx-background-color: transparent;" text="Number of Events:">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </TextField>
+                  <TextField editable="false" layoutX="56.0" layoutY="674.0" prefHeight="50.0" prefWidth="400.0" style="-fx-background-color: transparent;" text="Number of PRs:">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </TextField>
+                  <TextField editable="false" layoutX="56.0" layoutY="719.0" prefHeight="50.0" prefWidth="400.0" style="-fx-background-color: transparent;" text="Number of New PRs:">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </TextField>
+                  <TextField editable="false" layoutX="56.0" layoutY="766.0" prefHeight="50.0" prefWidth="400.0" style="-fx-background-color: transparent;" text="Number of Existing PRs:">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </TextField>
+                  <TextField editable="false" layoutX="530.0" layoutY="629.0" prefHeight="50.0" prefWidth="400.0" style="-fx-background-color: transparent;" text="Number of TLAMs:">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </TextField>
+                  <TextField editable="false" layoutX="530.0" layoutY="674.0" prefHeight="50.0" prefWidth="400.0" style="-fx-background-color: transparent;" text="Number of Attempted TLAMs:">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </TextField>
+                  <TextField editable="false" layoutX="530.0" layoutY="719.0" prefHeight="50.0" prefWidth="400.0" style="-fx-background-color: transparent;" text="Number of Successful TLAMs:">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </TextField>
+                  <Label fx:id="numEventsLab" layoutX="414.0" layoutY="639.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="numPRsLab" layoutX="414.0" layoutY="684.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="numNewPRsLab" layoutX="414.0" layoutY="729.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="numExistingPRsLab" layoutX="414.0" layoutY="778.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="numTLAMsLab" layoutX="930.0" layoutY="639.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="numAttemptedTLAMsLab" layoutX="930.0" layoutY="684.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="numSuccessfulTLAMsLab" layoutX="930.0" layoutY="729.0" prefHeight="25.0" prefWidth="100.0" text="---">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="loadFileLabel" layoutX="490.0" layoutY="96.0" prefHeight="27.0" prefWidth="192.0" text="Please load a file" textFill="RED">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>

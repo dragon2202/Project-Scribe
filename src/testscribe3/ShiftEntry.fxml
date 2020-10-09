@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="TestBox" prefHeight="899.0" prefWidth="1077.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testscribe3.ShiftEntryController">
+   <children>
+      <ScrollPane prefHeight="899.0" prefViewportHeight="899.0" prefViewportWidth="1074.0" prefWidth="1077.0" VBox.vgrow="ALWAYS">
+         <content>
+            <AnchorPane id="AnchorPane" fx:id="TestPane" blendMode="DARKEN" prefHeight="899.0" prefWidth="1077.0">
+               <children>
+                  <MenuBar fx:id="ShiftMenuBar" prefHeight="32.0" prefWidth="1174.0" snapToPixel="false">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                            <items>
+                                <MenuItem accelerator="Shortcut+L" mnemonicParsing="false" onAction="#loadFile" text="Load" />
+                                <MenuItem fx:id="saveItem" disable="true" mnemonicParsing="false" onAction="#saveDataShift" text="Save" />
+                                <MenuItem fx:id="saveItemAs" disable="true" onAction="#saveDataShiftAs" text="Save As" />
+                                <MenuItem fx:id="enableOnScreenKeyboardButton" accelerator="Shortcut+K" onAction="#callOnScreenKeyboard" text="Open On Screen Keyboard" /> 
+                                <MenuItem disable="true" mnemonicParsing="false" text="Print" />
+                             </items>
+                        </Menu>
+                            <Menu disable="true" mnemonicParsing="false" text="Export" />
+                            <Menu fx:id="variantFilter" disable="true" mnemonicParsing="false" text="Select Variant" />
+                            <Menu fx:id="sheetSelector" disable="true" mnemonicParsing="false" text="Select Sheet" />
+                            <Menu fx:id="headerJumpTo" disable="true" mnemonicParsing="false" text="Find" />
+                            <Menu mnemonicParsing="false" text="Switch Mode">
+                                <items>
+                                    <MenuItem fx:id="EditMode" accelerator="F2" mnemonicParsing="false" onAction="#handleEditButton" text="Edit Mode" /> 
+                                    <MenuItem fx:id="ViewMode" accelerator="F3" mnemonicParsing="false" onAction="#handleViewButton" text="View Mode" /> 
+                                </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="View">
+                           <items>
+                              <MenuItem fx:id="cclogView" accelerator="F5" mnemonicParsing="false" onAction="#handleCCLog" text="CCLog" /> 
+                              <MenuItem fx:id="countsView" accelerator="F6" mnemonicParsing="false" onAction="#handleCounts" text="Counts" /> 
+                              <MenuItem fx:id="execView" accelerator="F7" mnemonicParsing="false" onAction="#handleExec" text="Executive Summary" /> 
+                              <MenuItem accelerator="F8" disable="true" mnemonicParsing="false" text="Shift Entry" />
+                              <MenuItem fx:id="closeItem1" accelerator="F9" mnemonicParsing="false" onAction="#handleTest" text="Test Steps" /> 
+                           </items>
+                        </Menu>
+                      <Menu mnemonicParsing="false" text="Help">
+                        <items>
+                          <MenuItem accelerator="F1" mnemonicParsing="false" text="Tutorial" /> 
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+                  <Label layoutX="69.0" layoutY="100.0" text="Test Duration (in hours):" />
+                  <Label layoutX="74.0" layoutY="166.0" text="Shift Length (in hours):" />
+                  <Label layoutX="74.0" layoutY="233.0" text="Number of Shifts:" />
+                  <Label layoutX="265.0" layoutY="312.0" text="Start Time" underline="true" />
+                  <Label layoutX="473.0" layoutY="312.0" prefHeight="27.0" prefWidth="85.0" text="Stop Time" underline="true" />
+                  <Label layoutX="674.0" layoutY="312.0" text="Test Director" underline="true" />
+                  <Label layoutX="896.0" layoutY="312.0" text="Personnel" underline="true" />
+                  <TextField fx:id="testDuration" layoutX="278.0" layoutY="94.0" />
+                  <TextField fx:id="shiftLength" layoutX="278.0" layoutY="160.0" />
+                  <TextField fx:id="numShifts" layoutX="278.0" layoutY="227.0" />
+                  <Button layoutX="63.0" layoutY="287.0" mnemonicParsing="false" onAction="#AddTextFields" text="Add Shift" />
+                  <VBox fx:id="startTime" layoutX="200.0" layoutY="350.0" prefHeight="200.0" prefWidth="210.0" />
+                  <VBox fx:id="stopTime" layoutX="410.0" layoutY="350.0" prefHeight="200.0" prefWidth="210.0" />
+                  <VBox fx:id="testDirector" layoutX="620.0" layoutY="350.0" prefHeight="200.0" prefWidth="210.0" />
+                  <VBox fx:id="personnel" layoutX="830.0" layoutY="350.0" prefHeight="200.0" prefWidth="210.0" />
+                  <VBox fx:id="shift" layoutX="50.0" layoutY="350.0" prefHeight="261.0" prefWidth="123.0" />
+                  <Label layoutX="506.0" layoutY="47.0" text="Shift Entry">
+                     <font>
+                        <Font name="Arial" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>

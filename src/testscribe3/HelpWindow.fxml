@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testscribe3.HelpWindowController">
+   <children>
+      <Label />
+      <VBox alignment="TOP_CENTER" prefWidth="900.0">
+         <children>
+            <Label text="Modes" />
+            <Accordion>
+              <panes>
+                <TitledPane animated="false" text="View">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <TextArea blendMode="DARKEN" text="View mode allows the user to tests without being able to edit them. &#10;Printing: Go to print under file to print the current test file. &#10;Exporting: Go to export under view and a .csv file will be made from the current test file." />
+                                 </children>
+                              </VBox>
+                           </children></AnchorPane>
+                  </content>
+                </TitledPane>
+                <TitledPane animated="false" text="Edit">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </TitledPane>
+              </panes>
+            </Accordion>
+            <Label text="Tools" />
+            <Accordion>
+              <panes>
+                <TitledPane animated="false" text="CCLog">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </TitledPane>
+                <TitledPane animated="false" text="Executive Summary">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </TitledPane>
+                <TitledPane animated="false" text="Shift Entry">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </TitledPane>
+                  <TitledPane animated="false" layoutX="10.0" layoutY="112.0" text="Counts">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" layoutX="10.0" layoutY="163.0" text="Test Steps">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        <TextArea blendMode="DARKEN" text="The Test Steps tool allows a tester to enter in data for each test conducted. &#10; Failed Tests: Comments must be entered for failed tests. &#10; Variants: A variant for each test must be selected before test information can be recorded. &#10; Select Sheet: Allows the user to change between sheets in the Excel file. It's contents will be displayed. &#10; Find: Allows the testser to skip toa specific test step component." />
+                     </content>
+                  </TitledPane>
+              </panes>
+            </Accordion>
+         </children>
+      </VBox>
+      <ImageView fx:id="imageView1" fitHeight="165.0" fitWidth="261.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="TestBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testscribe3.CCLogController">
+   <children>
+      <ScrollPane prefViewportHeight="899.0" prefViewportWidth="1172.0" VBox.vgrow="ALWAYS">
+         <content>
+            <AnchorPane id="AnchorPane" fx:id="TestPane" blendMode="DARKEN" prefHeight="899.0" prefWidth="1172.0">
+               <children>
+                  <MenuBar fx:id="CCLogMenuBar" prefHeight="32.0" prefWidth="1172.0">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="File">
+                        <items>
+                              <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Save" accelerator="Shortcut+S"/>
+                              <MenuItem fx:id="enableOnScreenKeyboardButton" onAction="#callOnScreenKeyboard" text="Open On Screen Keyboard" accelerator="Shortcut+K"/>
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Edit">
+                        <items>
+                              <MenuItem mnemonicParsing="false" onAction="#loadFile" text="Load CCLog Excel Data" accelerator="Shortcut+L"/>
+                        </items>
+                      </Menu>
+                        <Menu mnemonicParsing="false" text="Switch Mode">
+                           <items>
+                              <MenuItem fx:id="editView" mnemonicParsing="false" onAction="#handleEditButton" text="Edit Mode" accelerator="F2"/>
+                              <MenuItem fx:id="ViewMode" mnemonicParsing="false" onAction="#handleViewButton" text="View Mode" accelerator="F3"/>
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="View">
+                           <items>
+                              <MenuItem fx:id="countsView" mnemonicParsing="false" onAction="#handleCounts" text="Counts" accelerator="F6"/>
+                              <MenuItem fx:id="execView" mnemonicParsing="false" onAction="#handleExec" text="Executive Summary" accelerator="F7"/>
+                              <MenuItem fx:id="shiftView" mnemonicParsing="false" onAction="#handleShift" text="Shift Entry" accelerator="f8"/>
+                              <MenuItem fx:id="closeItem1" mnemonicParsing="false" onAction="#handleTest" text="Test Steps" accelerator="F9"/>
+                           </items>
+                        </Menu>
+                      <Menu mnemonicParsing="false" text="Help">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="Tutorial" accelerator="F1"/>
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+                  <Button layoutX="211.0" layoutY="196.0" mnemonicParsing="false" onAction="#newEvent" prefHeight="300.0" prefWidth="300.0" text="Create Event" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="48.0" />
+                     </font></Button>
+                  <Button layoutX="661.0" layoutY="196.0" mnemonicParsing="false" onAction="#editExistingEvent" prefHeight="300.0" prefWidth="300.0" text="Edit/View Events" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="48.0" />
+                     </font></Button>
+                  <Label layoutX="511.0" layoutY="53.0" text="CCLog">
+                     <font>
+                        <Font name="Arial" size="48.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>
+

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="VBoxEdit" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testscribe3.EditModeController">
+   <children>
+      <ScrollPane prefHeight="1200.0" prefViewportHeight="676.0" prefViewportWidth="887.0" prefWidth="1300.0" VBox.vgrow="ALWAYS">
+         <content>
+            <AnchorPane id="AnchorPane" blendMode="DARKEN" prefHeight="1200.0" prefWidth="1300.0">
+               <children>
+                  <Label layoutX="584.0" layoutY="27.0" prefHeight="70.0" prefWidth="221.0" text="Edit Mode">
+                     <font>
+                        <Font name="Arial" size="48.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="previousArrow1" layoutX="501.0" layoutY="1146.0" mnemonicParsing="false" onAction="#previousArrow1" prefHeight="30.0" prefWidth="45.0" text="&lt;" visible="false" />
+                  <Button fx:id="previousArrow5" layoutX="450.0" layoutY="1146.0" mnemonicParsing="false" onAction="#previousArrow5" prefHeight="30.0" prefWidth="45.0" text="&lt;&lt;" visible="false" />
+                  <Button fx:id="previousArrow10" layoutX="399.0" layoutY="1146.0" mnemonicParsing="false" onAction="#previousArrow10" prefHeight="30.0" prefWidth="45.0" text="&lt;&lt;&lt;" visible="false" />
+                  <Button fx:id="nextArrow1" layoutX="745.0" layoutY="1146.0" mnemonicParsing="false" onAction="#nextArrow1" prefHeight="30.0" prefWidth="45.0" text="&gt;" visible="false" />
+                  <Button fx:id="nextArrow5" layoutX="796.0" layoutY="1146.0" mnemonicParsing="false" onAction="#nextArrow5" prefHeight="30.0" prefWidth="45.0" text="&gt;&gt;" visible="false" />
+                  <Button fx:id="nextArrow10" layoutX="847.0" layoutY="1146.0" mnemonicParsing="false" onAction="#nextArrow10" prefHeight="30.0" prefWidth="45.0" text="&gt;&gt;&gt;" visible="false" />
+                  <TextField fx:id="pageNumber" alignment="CENTER" editable="false" layoutX="558.0" layoutY="1146.0" mouseTransparent="true" prefHeight="17.0" prefWidth="175.0" visible="false" />
+                  <MenuBar fx:id="EditMenuBar" prefHeight="32.0" prefWidth="1300.0">
+                     <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                           <items>
+                              <MenuItem accelerator="Shortcut+L" mnemonicParsing="false" onAction="#loadFile" text="Load" />
+                              <MenuItem disable="true" fx:id="saveTest" accelerator="Shortcut+S" mnemonicParsing="false" onAction="#saveEdits" text="Save" />
+                              <MenuItem disable="true" fx:id="saveTestAs" onAction="#saveEditsAs" text="Save As" />
+                              <MenuItem fx:id="enableOnScreenKeyboardButton" accelerator="Shortcut+K" onAction="#callOnScreenKeyboard" text="Open On Screen Keyboard" />
+                              <MenuItem disable="true" mnemonicParsing="false" text="Print" />
+                           </items>
+                        </Menu>
+                        <Menu disable="true" mnemonicParsing="false" text="Export" />
+                        <Menu disable="true" mnemonicParsing="false" text="Select Variant" />
+                        <Menu fx:id="sheetSelector" mnemonicParsing="false" text="Select Sheet" />
+                        <Menu fx:id="headerJumpTo" mnemonicParsing="false" text="Find" />
+                        <Menu mnemonicParsing="false" text="Switch Mode">
+                           <items>
+                              <MenuItem disable="true" mnemonicParsing="false" text="EditMode" accelerator="F2"/>
+                              <MenuItem fx:id="ViewMode" accelerator="F3" mnemonicParsing="false" onAction="#handleViewButton" text="View Mode" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="View">
+                           <items>
+                              <MenuItem accelerator="F5" mnemonicParsing="false" onAction="#handleCCLog" text="CCLog" />
+                              <MenuItem accelerator="F6" mnemonicParsing="false" onAction="#handleCounts" text="Counts" />
+                              <MenuItem accelerator="F7" mnemonicParsing="false" onAction="#handleExec" text="Executive Summary" />
+                              <MenuItem accelerator="F8" mnemonicParsing="false" onAction="#handleShift" text="Shift Entry" />
+                              <MenuItem accelerator="F9" mnemonicParsing="false" onAction="#handleTestStep" text="Test Steps" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="NotYetImplemented" accelerator="F1"/>
+                          </items>
+                        </Menu>
+                     </menus>
+                  </MenuBar>
+                  <TextArea fx:id="question1" layoutX="285.0" layoutY="151.0" prefHeight="76.0" prefWidth="523.0" style="-fx-alignment: top-left; -fx-wrap-text: true;" visible="false" />
+                  <TextArea fx:id="question2" layoutX="285.0" layoutY="360.0" prefHeight="76.0" prefWidth="523.0" style="-fx-alignment: top-left; -fx-wrap-text: true;" visible="false" />
+                  <TextArea fx:id="question3" layoutX="285.0" layoutY="570.0" prefHeight="76.0" prefWidth="523.0" style="-fx-alignment: top-left; -fx-wrap-text: true;" visible="false" />
+                  <TextArea fx:id="question4" layoutX="285.0" layoutY="780.0" prefHeight="76.0" prefWidth="523.0" style="-fx-alignment: top-left; -fx-wrap-text: true;" visible="false" />
+                  <TextArea fx:id="question5" layoutX="285.0" layoutY="990.0" prefHeight="76.0" prefWidth="523.0" style="-fx-alignment: top-left; -fx-wrap-text: true;" visible="false" />
+                  <Label fx:id="labelEditSaved" layoutX="1225.0" layoutY="40.0" prefHeight="32.0" prefWidth="50.0" text="Saved!" visible="false" />
+                  <TextField fx:id="id1" alignment="CENTER" layoutX="14.0" layoutY="174.0" prefHeight="28.0" prefWidth="69.0" visible="false" />
+                  <TextField fx:id="id2" alignment="CENTER" layoutX="14.0" layoutY="384.0" prefHeight="28.0" prefWidth="69.0" visible="false" />
+                  <TextField fx:id="id3" alignment="CENTER" layoutX="14.0" layoutY="594.0" prefHeight="28.0" prefWidth="69.0" visible="false" />
+                  <TextField fx:id="id4" alignment="CENTER" layoutX="14.0" layoutY="804.0" prefHeight="28.0" prefWidth="69.0" visible="false" />
+                  <TextField fx:id="id5" alignment="CENTER" layoutX="14.0" layoutY="1014.0" prefHeight="28.0" prefWidth="69.0" visible="false" />
+                  <TextArea fx:id="var1" layoutX="974.0" layoutY="151.0" prefHeight="108.0" prefWidth="138.0" style="-fx-alignment: top-left; -fx-wrap-text: true;" visible="false" />
+                  <TextArea fx:id="var2" layoutX="974.0" layoutY="361.0" prefHeight="108.0" prefWidth="138.0" style="-fx-alignment: top-left; -fx-wrap-text: true;" visible="false" />
+                  <TextArea fx:id="var3" layoutX="974.0" layoutY="571.0" prefHeight="108.0" prefWidth="138.0" style="-fx-alignment: top-left; -fx-wrap-text: true;" visible="false" />
+                  <TextArea fx:id="var4" layoutX="974.0" layoutY="781.0" prefHeight="108.0" prefWidth="138.0" style="-fx-alignment: top-left; -fx-wrap-text: true;" visible="false" />
+                  <TextArea fx:id="var5" layoutX="974.0" layoutY="991.0" prefHeight="108.0" prefWidth="138.0" style="-fx-alignment: top-left; -fx-wrap-text: true;" visible="false" />
+                  <TextArea fx:id="subHead1" layoutX="95.0" layoutY="151.0" prefHeight="125.0" prefWidth="174.0" style="-fx-alignment: top-left; -fx-wrap-text: true;" visible="false" />
+                  <TextArea fx:id="subHead2" layoutX="95.0" layoutY="360.0" prefHeight="125.0" prefWidth="174.0" style="-fx-alignment: top-left; -fx-wrap-text: true;" visible="false" />
+                  <TextArea fx:id="subHead3" layoutX="95.0" layoutY="570.0" prefHeight="125.0" prefWidth="174.0" style="-fx-alignment: top-left; -fx-wrap-text: true;" visible="false" />
+                  <TextArea fx:id="subHead4" layoutX="95.0" layoutY="780.0" prefHeight="125.0" prefWidth="174.0" style="-fx-alignment: top-left; -fx-wrap-text: true;" visible="false" />
+                  <TextArea fx:id="subHead5" layoutX="95.0" layoutY="990.0" prefHeight="125.0" prefWidth="174.0" style="-fx-alignment: top-left; -fx-wrap-text: true;" visible="false" />
+                  <TextArea fx:id="header1" layoutX="14.0" layoutY="90.0" prefHeight="54.0" prefWidth="1139.0" style="-fx-alignment: top-left; -fx-wrap-text: true;" visible="false" />
+                  <TextArea fx:id="header2" layoutX="14.0" layoutY="300.0" prefHeight="54.0" prefWidth="1139.0" style="-fx-alignment: top-left; -fx-wrap-text: true;" visible="false" />
+                  <TextArea fx:id="header3" layoutX="14.0" layoutY="510.0" prefHeight="54.0" prefWidth="1139.0" style="-fx-alignment: top-left; -fx-wrap-text: true;" visible="false" />
+                  <TextArea fx:id="header4" layoutX="14.0" layoutY="720.0" prefHeight="54.0" prefWidth="1139.0" style="-fx-alignment: top-left; -fx-wrap-text: true;" visible="false" />
+                  <TextArea fx:id="header5" layoutX="14.0" layoutY="930.0" prefHeight="54.0" prefWidth="1139.0" style="-fx-alignment: top-left; -fx-wrap-text: true;" visible="false" />
+                  <Label fx:id="labelStepsNotFound" layoutX="14.0" layoutY="45.0" prefHeight="35.0" prefWidth="161.0" text="Test Steps not found! " textAlignment="CENTER" textFill="RED" visible="false">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>

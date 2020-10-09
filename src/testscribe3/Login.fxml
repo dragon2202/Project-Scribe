@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="1200.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testscribe3.LoginController">
+   <children>
+      <ScrollPane prefViewportHeight="1200.0" prefViewportWidth="1301.0">
+         <content>
+            <AnchorPane id="AnchorPane" prefHeight="1200.0" prefWidth="1300.0">
+               <children>
+                  <AnchorPane layoutX="-1.0" prefHeight="1200.0" prefWidth="1300.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="174.0" layoutY="62.0" prefHeight="70.0" prefWidth="952.0" text="Welcome to Edit Mode!">
+                           <font>
+                              <Font size="48.0" />
+                           </font>
+                        </Label>
+                        <PasswordField fx:id="pass1" alignment="CENTER" layoutX="514.0" layoutY="594.0" onAction="#handleLoginButton" prefHeight="70.0" prefWidth="273.0" />
+                        <Button fx:id="LoginButton" alignment="CENTER" layoutX="569.0" layoutY="696.0" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="61.0" prefWidth="162.0" text="Login" AnchorPane.bottomAnchor="443.0" />
+                        <Label alignment="CENTER" layoutX="575.0" layoutY="521.0" text="Password">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <MenuBar fx:id="LoginMenuBar" prefHeight="37.0" prefWidth="1300.0" AnchorPane.bottomAnchor="1163.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="File">
+                        <items>
+                              <MenuItem disable="true" mnemonicParsing="false" text="Load" />
+                          <MenuItem disable="true" mnemonicParsing="false" text="Save" />
+                          <MenuItem disable="true" mnemonicParsing="false" text="Save As" />
+                          <MenuItem fx:id="enableOnScreenKeyboardButton" accelerator="Shortcut+K" onAction="#callOnScreenKeyboard" text="Open On Screen Keyboard" />
+                              <MenuItem disable="true" mnemonicParsing="false" text="Print" />
+                        </items>
+                      </Menu>
+                      <Menu disable="true" mnemonicParsing="false" text="Export" />
+                      <Menu disable="true" mnemonicParsing="false" text="Select Variant" />
+                      <Menu disable="true" mnemonicParsing="false" text="Select Sheet" />
+                      <Menu disable="true" mnemonicParsing="false" text="Find" />
+                      <Menu mnemonicParsing="false" text="Switch Mode">
+                         <items>
+                            <MenuItem accelerator="F2" disable="true" mnemonicParsing="false" text="EditMode" />
+                            <MenuItem fx:id="ViewMode" accelerator="F3" mnemonicParsing="false" onAction="#handleViewButton" text="View Mode" />
+                         </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="View">
+                         <items>
+                            <MenuItem fx:id="cclogView" accelerator="F5" mnemonicParsing="false" onAction="#handleCCLog" text="CCLog" />
+                            <MenuItem fx:id="countsView" accelerator="F6" mnemonicParsing="false" onAction="#handleCounts" text="Counts" />
+                            <MenuItem fx:id="execView" accelerator="F7" mnemonicParsing="false" onAction="#handleExec" text="Executive Summary" />
+                            <MenuItem fx:id="shiftView" accelerator="F8" mnemonicParsing="false" onAction="#handleShift" text="Shift Entry" />
+                            <MenuItem accelerator="Shortcut+T" mnemonicParsing="F9" onAction="#handleTestStep" text="Test Steps" />
+                         </items>
+                      </Menu>
+                      <Menu accelerator="F1" mnemonicParsing="false" text="Help">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="NotYetImplemented" />
+                          </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+                  <Label fx:id="badPassword" layoutX="189.0" layoutY="252.0" text="Bad Username or Password!" textFill="#ff0606" visible="false" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="TestBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testscribe3.ExecutiveController">
+   <children>
+      <ScrollPane prefViewportHeight="899.0" prefViewportWidth="1172.0" VBox.vgrow="ALWAYS">
+         <content>
+            <AnchorPane id="AnchorPane" fx:id="TestPane" blendMode="DARKEN" prefHeight="899.0" prefWidth="1172.0">
+               <children>
+                  <MenuBar fx:id="ExecMenuBar" prefHeight="32.0" prefWidth="1172.0">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="File">
+                        <items>
+                              <MenuItem mnemonicParsing="false" onAction="#loadFile" text="Load" />
+                              <MenuItem fx:id="saveItem" disable="true" accelerator="Shortcut+S" mnemonicParsing="false" onAction="#saveFile" text="Save" />
+                              <MenuItem fx:id="saveItemAs" disable="true" mnemonicParsing="false" onAction="#saveFileAs" text="Save As" />
+                              <MenuItem fx:id="enableOnScreenKeyboardButton" accelerator="Shortcut+K" onAction="#callOnScreenKeyboard" text="Open On Screen Keyboard" />
+                              <MenuItem disable="true" mnemonicParsing="false" text="Print" />
+                        </items>
+                      </Menu>
+                        <Menu disable="true" mnemonicParsing="false" text="Export" />
+                        <Menu disable="true" mnemonicParsing="false" text="Select Variant" />
+                        <Menu disable="true" mnemonicParsing="false" text="Select Sheet" />
+                        <Menu disable="true" mnemonicParsing="false" text="Find" />
+                        <Menu mnemonicParsing="false" text="Switch Mode">
+                           <items>
+                              <MenuItem fx:id="EditMode" accelerator="F2" mnemonicParsing="false" onAction="#handleEditButton" text="Edit Mode" />
+                              <MenuItem fx:id="ViewMode" accelerator="F3" mnemonicParsing="false" onAction="#handleViewButton" text="View Mode" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="View">
+                           <items>
+                              <MenuItem fx:id="cclogView" accelerator="F5" mnemonicParsing="false" onAction="#handleCCLog" text="CCLog" />
+                              <MenuItem fx:id="countsView" accelerator="F6" mnemonicParsing="false" onAction="#handleCounts" text="Counts" />
+                              <MenuItem disable="true" mnemonicParsing="false" text="Executive Summary" />
+                              <MenuItem fx:id="shiftView" accelerator="F8" mnemonicParsing="false" onAction="#handleShift" text="Shift Entry" />
+                              <MenuItem fx:id="closeItem1" accelerator="F9" mnemonicParsing="false" onAction="#handleTest" text="Test Steps" />
+                           </items>
+                        </Menu>
+                      <Menu mnemonicParsing="false" text="Help">
+                        <items>
+                          <MenuItem accelerator="F1" mnemonicParsing="false" text="Tutorial" />
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+                  <Label layoutX="46.0" layoutY="121.0" prefHeight="21.0" prefWidth="85.0" text="Test Name:" />
+                  <Label layoutX="47.0" layoutY="180.0" text="Shift Length:" />
+                  <Label layoutX="44.0" layoutY="246.0" text="Test Dates:" />
+                  <Label layoutX="43.0" layoutY="305.0" text="Test Location:" />
+                  <Label layoutX="755.0" layoutY="121.0" text="Version Information" underline="true" />
+                  <Label layoutX="712.0" layoutY="165.0" text="Build" />
+                  <Label layoutX="951.0" layoutY="165.0" text="Ship Variant" />
+                  <Label layoutX="753.0" layoutY="285.0" text="Version Numbers" underline="true" />
+                  <Label layoutX="604.0" layoutY="345.0" text="TC Version:" />
+                  <Label layoutX="604.0" layoutY="414.0" text="PC Version:" />
+                  <Label layoutX="46.0" layoutY="391.0" text="Known Discrepencies of System" underline="true" />
+                  <Label layoutX="44.0" layoutY="449.0" text="Any discrepencies at the start of test?" />
+                  <TextField fx:id="testName" layoutX="158.0" layoutY="116.0" prefHeight="31.0" prefWidth="261.0" />
+                  <TextField fx:id="shiftLength" layoutX="157.0" layoutY="175.0" prefHeight="31.0" prefWidth="261.0" />
+                  <TextField fx:id="testDates1" layoutX="158.0" layoutY="241.0" prefHeight="39.0" prefWidth="135.0" />
+                  <TextField fx:id="testLocation" layoutX="158.0" layoutY="300.0" prefHeight="31.0" prefWidth="261.0" />
+                  <TextField fx:id="buildName" layoutX="604.0" layoutY="201.0" />
+                  <TextField fx:id="shipVariant" layoutX="876.0" layoutY="201.0" />
+                  <TextField fx:id="TCVersion" layoutX="725.0" layoutY="338.0" />
+                  <TextField fx:id="PCVersion" layoutX="725.0" layoutY="407.0" />
+                  <Button layoutX="604.0" layoutY="478.0" mnemonicParsing="false" onAction="#AddTextField" text="Add Version Numbers" />
+                  <VBox fx:id="pane_main_grid" layoutX="882.0" layoutY="543.0" prefHeight="200.0" prefWidth="251.0" />
+                  <VBox fx:id="pane_main_grid2" layoutX="610.0" layoutY="543.0" prefHeight="200.0" prefWidth="251.0" />
+                  <MenuButton fx:id="discrepChoose" layoutX="423.0" layoutY="442.0" mnemonicParsing="false" text="Choose">
+                    <items>
+                      <MenuItem fx:id="discrepYes" mnemonicParsing="false" onAction="#handlediscrepChoiceYes" text="Yes" />
+                      <MenuItem fx:id="discrepNo" mnemonicParsing="false" onAction="#handlediscrepChoiceNo" text="No" />
+                    </items>
+                  </MenuButton>
+                  <TextArea fx:id="discrep1" layoutX="45.0" layoutY="500.0" prefHeight="213.0" prefWidth="409.0" visible="false" />
+                  <TextField fx:id="testDates2" layoutX="306.0" layoutY="241.0" prefHeight="39.0" prefWidth="135.0" />
+                  <Label layoutX="432.0" layoutY="42.0" text="Executive Summary">
+                     <font>
+                        <Font name="Arial" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>

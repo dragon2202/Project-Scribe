@@ -1,0 +1,5 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Normalize .java files to LF (in case git doesn't automatically detect it as text)
+*.java text eol=lf
