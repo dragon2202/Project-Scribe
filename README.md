@@ -1,6 +1,6 @@
 # TELAT
 A graphical user interface for interacting with, loading from and writing to excel test data sheets.
-
+To see Screenshots, go to the user manual, or final presentation.
 # Installation
 1. Copy and paste entire folder off of the CD on to the computer.
 2. Go to: scribe>Project Scribe>dist
